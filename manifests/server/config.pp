@@ -26,6 +26,10 @@ class jenkins::server::config {
     notify  => Class['jenkins::server::service'],
     owner   => 'root',
   }
+
+  apache::function::virtualhost-proxy { $jenkins::server::hostname:
+    port  => '8080',
+  }
 }
 
 # vim:sw=2:ts=2:expandtab:textwidth=79

@@ -1,5 +1,6 @@
 fixtures:
   repositories:
+    'apache': 'git://github.com/kickstandproject/kickstandproject-apache.git'
     'stdlib': 'git://github.com/puppetlabs/puppetlabs-stdlib.git'
   symlinks:
     'jenkins': '#{source_dir}'

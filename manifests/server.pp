@@ -23,7 +23,9 @@
 # of the Apache License, Version 2.0. See the LICENSE file at
 # the top of the source tree.
 #
-class jenkins::server {
+class jenkins::server(
+  $hostname = $::fqdn,
+) {
   include jenkins::params
   include jenkins::server::init
 }
