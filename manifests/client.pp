@@ -1,4 +1,15 @@
-# == Class: jenkins::server::init
+#
+# == Class: jenkins::client
+#
+# This class manages the Jenkins client
+#
+# === Parameters
+#
+# === Variables
+#
+# === Examples
+#
+#  class { 'jenkins::client': }
 #
 # === Authors
 #
@@ -12,16 +23,11 @@
 # of the Apache License, Version 2.0. See the LICENSE file at
 # the top of the source tree.
 #
-class jenkins::server::init {
-  include jenkins::server::install
-  include jenkins::server::config
-  include jenkins::server::service
-
-  File {
-    group => $jenkins::params::server::group,
-    mode  => $jenkins::params::server::mode,
-    owner => $jenkins::params::server::owner,
-  }
+class jenkins::client(
+  $url = 'http://jenkins',
+) {
+  include jenkins::params::client
+  include jenkins::client::init
 }
 
 # vim:sw=2:ts=2:expandtab:textwidth=79

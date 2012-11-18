@@ -13,7 +13,7 @@
 # the top of the source tree.
 #
 class jenkins::server::install {
-  package { $jenkins::params::packagename:
+  package { $jenkins::params::server::packagename:
     ensure  => present,
   }
 }

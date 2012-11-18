@@ -13,7 +13,7 @@
 # the top of the source tree.
 #
 class jenkins::server::service {
-  service { $jenkins::params::servicename:
+  service { $jenkins::params::server::servicename:
     ensure      => running,
     enable      => true,
     hasrestart  => true,

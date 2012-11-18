@@ -1,5 +1,5 @@
 #
-# == Class: jenkins::params
+# == Class: jenkins::params::server
 #
 # === Authors
 #
@@ -13,24 +13,20 @@
 # of the Apache License, Version 2.0. See the LICENSE file at
 # the top of the source tree.
 #
-class jenkins::params {
-  $basedir = $::operatingsystem ? {
-    default => '/var/lib/jenkins',
+class jenkins::params::server inherits jenkins::params {
+  $defaultfile = $::operatingsystem ? {
+    default => '/etc/default/jenkins',
   }
 
-  $group = $::operatingsystem ? {
+  $packagename = $::operatingsystem ? {
     default => 'jenkins',
   }
 
-  $hasstatus = $::operatingsystem ? {
-    default => true,
+  $processname = $::operatingsystem ? {
+    default => 'jenkins',
   }
 
-  $mode = $::operatingsystem ? {
-    default => '0644',
-  }
-
-  $owner = $::operatingsystem ? {
+  $servicename = $::operatingsystem ? {
     default => 'jenkins',
   }
 }

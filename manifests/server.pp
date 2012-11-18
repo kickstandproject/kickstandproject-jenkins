@@ -27,7 +27,7 @@ class jenkins::server(
   $hostname = $::fqdn,
 ) {
   require apache::server
-  include jenkins::params
+  include jenkins::params::server
   include jenkins::server::init
 }
 

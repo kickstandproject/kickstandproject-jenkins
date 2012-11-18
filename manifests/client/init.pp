@@ -1,4 +1,4 @@
-# == Class: jenkins::server::init
+# == Class: jenkins::client::init
 #
 # === Authors
 #
@@ -12,15 +12,15 @@
 # of the Apache License, Version 2.0. See the LICENSE file at
 # the top of the source tree.
 #
-class jenkins::server::init {
-  include jenkins::server::install
-  include jenkins::server::config
-  include jenkins::server::service
+class jenkins::client::init {
+  include jenkins::client::install
+  include jenkins::client::config
+  include jenkins::client::service
 
   File {
-    group => $jenkins::params::server::group,
-    mode  => $jenkins::params::server::mode,
-    owner => $jenkins::params::server::owner,
+    group => $jenkins::params::client::group,
+    mode  => $jenkins::params::client::mode,
+    owner => $jenkins::params::client::owner,
   }
 }
 

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'jenkins::server' do
+describe 'jenkins::client' do
   context 'on Ubuntu 12.04 (Precise)' do
     let(:facts) { { 
       :lsbdistcodename => 'precise',
@@ -9,7 +9,7 @@ describe 'jenkins::server' do
     } }
 
     it do
-      should contain_file('/etc/default/jenkins').with({
+      should contain_file('/etc/default/jenkins-slave').with({
         'ensure' => 'file',
         'group'  => 'root',
         'mode'   => '0644',
@@ -27,11 +27,11 @@ describe 'jenkins::server' do
     end
 
     it do
-      should contain_package('jenkins').with_ensure('present')
+      should contain_package('jenkins-slave').with_ensure('present')
     end
 
     it do
-      should contain_service('jenkins').with({
+      should contain_service('jenkins-slave').with({
         'ensure'     => 'running',
         'enable'     => true,
         'hasstatus'  => true,

@@ -1,4 +1,4 @@
-# == Class: jenkins::server::config
+# == Class: jenkins::client::config
 #
 # === Authors
 #
@@ -12,20 +12,16 @@
 # of the Apache License, Version 2.0. See the LICENSE file at
 # the top of the source tree.
 #
-class jenkins::server::config {
+class jenkins::client::config {
   include jenkins::common::config
 
-  file { $jenkins::params::server::defaultfile:
+  file { $jenkins::params::client::defaultfile:
     ensure  => file,
-    content => template('jenkins/etc/default/jenkins.erb'),
+    content => template('jenkins/etc/default/jenkins-slave.erb'),
     group   => 'root',
     mode    => '0644',
-    notify  => Class['jenkins::server::service'],
+    notify  => Class['jenkins::client::service'],
     owner   => 'root',
-  }
-
-  apache::function::virtualhost-proxy { $jenkins::server::hostname:
-    port  => '8080',
   }
 }
 
