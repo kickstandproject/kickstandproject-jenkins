@@ -22,6 +22,7 @@ class jenkins::server::config {
     mode    => '0644',
     notify  => Class['jenkins::server::service'],
     owner   => 'root',
+    require => Class['jenkins::server::install'],
   }
 
   apache::function::virtualhost-proxy { $jenkins::server::hostname:

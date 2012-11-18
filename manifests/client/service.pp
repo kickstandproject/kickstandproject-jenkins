@@ -14,11 +14,11 @@
 #
 class jenkins::client::service {
   service { $jenkins::params::client::servicename:
-    ensure      => running,
-    enable      => true,
-    hasrestart  => true,
-    hasstatus   => $jenkins::params::client::hasstatus,
-    require     => Class['jenkins::client::config'],
+    ensure     => running,
+    enable     => true,
+    hasrestart => true,
+    hasstatus  => $jenkins::params::client::hasstatus,
+    require    => Class['jenkins::client::config'],
   }
 }
 

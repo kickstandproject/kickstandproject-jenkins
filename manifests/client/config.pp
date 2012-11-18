@@ -22,6 +22,7 @@ class jenkins::client::config {
     mode    => '0644',
     notify  => Class['jenkins::client::service'],
     owner   => 'root',
+    require => Class['jenkins::client::install'],
   }
 }
 
