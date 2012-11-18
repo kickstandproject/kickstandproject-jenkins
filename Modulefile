@@ -1,5 +1,5 @@
 name    'kickstandproject-jenkins'
-version '0.0.2'
+version '0.0.3'
 author 'kickstandproject'
 license 'Apache 2.0'
 summary 'UNKNOWN'
