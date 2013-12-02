@@ -24,11 +24,9 @@
 # the top of the source tree.
 #
 class jenkins::server(
-  $hostname = $::fqdn,
 ) {
-  require apache::server
   include jenkins::params::server
   include jenkins::server::init
 }
 
-# vim:sw=2:ts=2:expandtab:textwidth=79
+# vim:sw=2:ts=2:expandtab

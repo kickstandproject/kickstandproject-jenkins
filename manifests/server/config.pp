@@ -24,10 +24,6 @@ class jenkins::server::config {
     owner   => 'root',
     require => Class['jenkins::server::install'],
   }
-
-  apache::function::virtualhost-proxy { $jenkins::server::hostname:
-    port  => '8080',
-  }
 }
 
-# vim:sw=2:ts=2:expandtab:textwidth=79
+# vim:sw=2:ts=2:expandtab
